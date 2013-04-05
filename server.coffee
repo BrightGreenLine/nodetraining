@@ -5,7 +5,7 @@ start = (port) ->
   if request.url.search "/favicon.ico"
    console.log "Received request for '" + request.url + "' from: " + request.connection.remoteAddress
   respond.writeHead 200, {"Content-Type": "text/plain"}
-  respond.write "Blank page but not 404"
+  respond.write "Blank page"
   respond.end()
 
  http.createServer(onrequest).listen(port)
