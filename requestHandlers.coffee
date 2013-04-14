@@ -1,5 +1,5 @@
 start = (response, postData) ->
- console.log "[RequestHandlers] 'start' was called"
+ console.log "[ReqHan] 'start' was called"
  
  body = '<html>' +
  '<head>' + 
@@ -18,7 +18,7 @@ start = (response, postData) ->
  response.end
 
 upload = (response, postData) ->
- console.log "[RequestHandlers] 'upload' was called"
+ console.log "[ReqHan] 'upload' was called"
  
  response.writeHead 200, {"Content-Type": "text/plain"}
  response.write "Uploaded text: "
