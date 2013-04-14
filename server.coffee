@@ -3,24 +3,23 @@ url = require 'url'
 
 start = (port , route, handle) ->
  onrequest = (request, respond) ->
-  if request.url.search "/favicon.ico"
-   console.log "[Server] Received request for '" + request.url + "' from: " + request.connection.remoteAddress
-   pathname = url.parse(request.url).pathname.toLowerCase()
-   query = url.parse(request.url).query
+  # console.log "[Server] Received request for '" + request.url + "' from: " + request.connection.remoteAddress
+  pathname = url.parse(request.url).pathname
+  query = url.parse(request.url).query
 
-   route(handle, pathname, respond, postData)
+   # route(handle, pathname, respond, postData)
 
   postData = ""
 
-  request.setEncoding 'utf8'
+  request.setEncoding "utf8"
 
-  request.addListener 'data', (postDataChunk) ->
+  request.addListener "data", (postDataChunk) ->
    postData += postDataChunk
    console.log "Received POST data chunk '" + 
    postDataChunk + "'."
 
   request.addListener "end" , ->
-   console.log "Sending POSTDATA: " + postData
+   # console.log "Sending POSTDATA: " + postData
    route(handle, pathname, respond, postData)
 
  http.createServer(onrequest).listen(port)
