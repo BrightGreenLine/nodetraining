@@ -18,9 +18,9 @@ start = (response, postData) ->
  response.end
 
 upload = (response, postData) ->
- console.log "[ReqHan] 'upload' was called"
+ console.log "[ReqHan] 'upload' was called with postData of: " + postData
  
- response.writeHead 200, {"Content-Type": "text/plain"}
+ response.writeHead 200, {"Content-Type": "text/html"}
  response.write "Uploaded text: "
  response.end
 
