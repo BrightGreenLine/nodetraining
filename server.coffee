@@ -8,11 +8,20 @@ start = (port , route, handle) ->
    pathname = url.parse(request.url).pathname.toLowerCase()
    query = url.parse(request.url).query
 
-   route(handle, pathname)
+   route(handle, pathname, respond, postData)
 
-   respond.writeHead 200, {"Content-Type": "text/plain"}
-   respond.write "Blank page, beating this up"
-   respond.end()
+  postData = ""
+
+  request.setEncoding 'utf8'
+
+  request.addListener 'data', (postDataChunk) ->
+   postData += postDataChunk
+   console.log "Received POST data chunk '" + 
+   postDataChunk + "'."
+
+  request.addListener "end" , ->
+   console.log "Sending POSTDATA: " + postData
+   route(handle, pathname, respond, postData)
 
  http.createServer(onrequest).listen(port)
  console.log "Server has started"
