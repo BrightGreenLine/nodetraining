@@ -1,6 +1,8 @@
 # Experimenting with node.js
 
-This is an experiment with node.js, teaching myself all of the necessary tools (freeBSD, git/gitHub, nginx, and CoffeeScript)
+This is an experiment with node.js, teaching
+myself all of the necessary tools (freeBSD,
+git/gitHub, nginx, and CoffeeScript)
 
 # About what you see here
 
