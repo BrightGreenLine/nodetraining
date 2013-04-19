@@ -7,20 +7,17 @@ start = (port , route, handle) ->
     pathname = url.parse(request.url).pathname
     query = url.parse(request.url).query
 
-    route(handle, pathname, respond, postData)
-
     postData = ""
 
     request.setEncoding "utf8"
 
     request.addListener "data", (postDataChunk) ->
-      postData += postDataChunk
+      postData += postDataChunk;
       console.log "Received POST data chunk '" + 
       postDataChunk + "'."
 
     request.addListener "end" , ->
-    console.log "Sending POSTDATA: " + postData
-    route(handle, pathname, respond, postData)
+      route(handle, pathname, respond, postData)
 
   http.createServer(onrequest).listen(port)
   console.log "Server has started"
