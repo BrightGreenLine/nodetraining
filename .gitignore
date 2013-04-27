@@ -12,7 +12,6 @@ logs
 results
 
 npm-debug.log
-*.js
 node.core
 
 node-modules/
