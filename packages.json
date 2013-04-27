@@ -1,0 +1,12 @@
+{
+  "name": "node-nodetest",
+  "version": "0.0.1",
+  "dependencies": {
+    "coffee": "1.6.1"
+	"formidable": "1.0.13"
+  },
+  "engines": {
+    "node": "0.8.14",
+    "npm": "1.2.x"
+  }
+}
